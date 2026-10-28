@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover destinations and plan your next trip with Travel Tourism.">
+  <title>Travel Tourism — Find your next escape</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Travel Tourism home"><span class="brand-mark">✦</span> Travel<span>Tourism</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#destinations">Destinations</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#plan">Plan a trip <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Find your<br><em>somewhere.</em></h1>
+        <p class="hero-copy">Thoughtful escapes, unforgettable places, and a little more wonder in every journey.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#destinations">Explore destinations <span>↓</span></a>
+          <span class="hero-note">Discover. Wander. Remember.</span>
+        </div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Stylized mountain landscape at sunset">
+        <div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+        <div class="hero-art-label"><span>01 / 04</span><span>THE WORLD IS WAITING</span></div>
+      </div>
+      <div class="hero-bottom"><span>CURATED TRAVEL INSPIRATION</span><span>INDIA & BEYOND&nbsp; ↘</span></div>
+    </section>
+
+    <section class="section destinations-section" id="destinations">
+      <div class="section-heading">
+        <div><p class="eyebrow">A WORLD OF POSSIBILITIES</p><h2>Places to <em>fall for.</em></h2></div>
+        <p class="section-intro">From quiet hill towns to sunlit coastlines, find a destination that feels like you.</p>
+      </div>
+      <div class="filters">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search places..." aria-label="Search destinations"></label>
+        <div class="filter-buttons" aria-label="Filter destinations">
+          <button class="filter-button active" data-category="All">All places</button>
+          <button class="filter-button" data-category="Mountains">Mountains</button>
+          <button class="filter-button" data-category="Beach">Beach</button>
+          <button class="filter-button" data-category="Culture">Culture</button>
+        </div>
+      </div>
+      <p id="destination-status" class="status-message" role="status">Loading destinations…</p>
+      <div id="destination-grid" class="destination-grid"></div>
+    </section>
+
+    <section class="quote-section" id="about">
+      <div class="quote-mark">“</div>
+      <p>We travel not to escape life, but for life not to escape us.</p>
+      <span>MAKE ROOM FOR WONDER</span>
+    </section>
+
+    <section class="section plan-section" id="plan">
+      <div class="plan-copy">
+        <p class="eyebrow">YOUR JOURNEY, YOUR WAY</p>
+        <h2>Let’s make a<br><em>little getaway.</em></h2>
+        <p>Tell us what you have in mind. Send a trip request and keep your next adventure moving.</p>
+        <div class="plan-points"><span>✦ Personal trip request</span><span>✦ Clear, simple planning</span><span>✦ Destinations worth remembering</span></div>
+      </div>
+      <form id="booking-form" class="booking-form">
+        <div class="form-title"><span>TRIP REQUEST</span><span class="form-step">01 — 04</span></div>
+        <div class="form-row">
+          <label>Full name<input name="name" autocomplete="name" minlength="2" maxlength="100" required placeholder="Your name"></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
+        </div>
+        <label>Where would you like to go?
+          <select name="destination_id" id="booking-destination" required><option value="">Choose a destination</option></select>
+        </label>
+        <div class="form-row">
+          <label>Departure date<input name="travel_date" type="date" id="travel-date" required></label>
+          <label>Number of travellers<select name="travellers" required><option value="1">1 traveller</option><option value="2" selected>2 travellers</option><option value="3">3 travellers</option><option value="4">4 travellers</option><option value="5">5 travellers</option><option value="6">6 travellers</option><option value="7">7 travellers</option><option value="8">8 travellers</option><option value="9">9 travellers</option><option value="10">10 travellers</option></select></label>
+        </div>
+        <label>Anything else we should know? <span class="optional">(optional)</span><textarea name="notes" rows="3" maxlength="1000" placeholder="Interests, questions, or special requests…"></textarea></label>
+        <button class="button button-dark submit-button" type="submit">Send trip request <span>↗</span></button>
+        <p id="booking-status" class="form-status" role="status" aria-live="polite"></p>
+        <p class="privacy-note">Your details are used only to respond to this trip request.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand brand-footer" href="/">✦ Travel<span>Tourism</span></a><span>Made for the curious.</span><span>© <span id="year"></span> Travel Tourism</span></footer>
+
+  <dialog id="destination-dialog" class="destination-dialog">
+    <button class="dialog-close" type="button" aria-label="Close destination details">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+</body>
+</html>
